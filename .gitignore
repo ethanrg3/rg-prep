@@ -1,1 +1,27 @@
+# OS artifacts
+.DS_Store
+
+# Editors and IDEs
+.idea/
+.vscode/
+
+# Python cache and build output
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
 venv/
+env/
+ENV/
+
+# Logs and env files
+*.log
+.env
