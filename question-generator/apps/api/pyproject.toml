@@ -1,12 +1,12 @@
 [project]
 name = "question-generator-api"
-version = "^3.11"
-description = ""
+version = "0.1.0"
+description = "ACT/SAT question generator API"
 authors = [
-    {name = "ethanrg03",email = "erodgersgates@gmail.com"}
+    {name = "Ethan Rodgers-Gates",email = "erodgersgates@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11, <4.0"
 dependencies = [
 ]
 

@@ -15,3 +15,8 @@ venv/
 # Local configuration
 .env
 *.log
+
+# Data and generated files
+data/
+apps/api/data/
+
