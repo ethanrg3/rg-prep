@@ -6,8 +6,8 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-from app.ingestion.pdf_parser import extract_pages, save_extraction
 
+from app.ingestion.pdf_parser import extract_pages, save_extraction
 
 ROOT = Path(__file__).resolve().parents[4]
 DATA_RAW = ROOT / "data" / "raw-pdfs"
@@ -25,7 +25,7 @@ def ingest_single_pdf(pdf_path: Path) -> None:
     """
     if not pdf_path.exists():
         raise FileNotFoundError(pdf_path)
-    
+
     # extract pages from PDF
     pages = extract_pages(pdf_path)
     print(f"Extracted {len(pages)} pages from {pdf_path.name}")
@@ -34,6 +34,7 @@ def ingest_single_pdf(pdf_path: Path) -> None:
     save_extraction(pages, DATA_EXTRACTED / f"{pdf_path.stem}.json")
     print(f"Saved extracted pages to {DATA_EXTRACTED / f'{pdf_path.stem}.json'}")
 
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ingest PDFs into the project's data folders.")
     parser.add_argument("pdf_path", type=Path, help="Path to the PDF file to ingest.")
@@ -41,6 +42,7 @@ def main() -> None:
 
     ensure_dirs()
     ingest_single_pdf(args.pdf_path)
+
 
 if __name__ == "__main__":
     print(f'Testing ingest_single_pdf with {DATA_RAW / "act" / "25MC5_ACT.pdf"}')

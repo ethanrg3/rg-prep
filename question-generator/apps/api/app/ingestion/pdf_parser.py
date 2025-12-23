@@ -10,6 +10,7 @@ from typing import Any
 
 import fitz
 
+
 def extract_pages(pdf_path: Path) -> list[dict[str, Any]]:
     """Extract plain text from each page of a PDF.
 
