@@ -10,7 +10,8 @@ requires-python = ">=3.11, <4.0"
 dependencies = [
     "pymupdf (>=1.26.7,<2.0.0)",
     "pillow (>=12.0.0,<13.0.0)",
-    "pytesseract (>=0.3.13,<0.4.0)"
+    "pytesseract (>=0.3.13,<0.4.0)",
+    "pytest (>=9.0.2,<10.0.0)"
 ]
 
 [build-system]
