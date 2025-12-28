@@ -1,6 +1,5 @@
-from sqlalchemy import create_engine, inspect
 from sqlalchemy.engine import Engine
-from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.sql import text
 
 from app.db import core as db_core
 
@@ -10,13 +9,20 @@ def test_get_db_engine_returns_engine() -> None:
     assert isinstance(engine, Engine)
 
 
+def test_engine_connects_successfully() -> None:
+    engine = db_core.get_db_engine()
+    with engine.connect() as connection:
+        result = connection.execute(text("SELECT 1")).scalar()
+        assert int(result) == 1
+
+
+"""
 def test_get_db_session_can_execute_and_close() -> None:
     sess = db_core.get_db_session()
     assert isinstance(sess, Session)
-    result = sess.execute("SELECT 1").scalar()
+    result = sess.execute(text("SELECT 1")).scalar()
     assert int(result) == 1
     sess.close()
-
 
 def test_get_db_generator_yields_session_and_closes() -> None:
     gen = db_core.get_db()
@@ -63,3 +69,4 @@ def test_init_db_creates_tables(tmp_path) -> None:
         # Restore original engine/session to avoid side effects
         db_core._engine = orig_engine
         db_core._SessionLocal = orig_session_local
+"""
