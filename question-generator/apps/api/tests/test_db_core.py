@@ -1,4 +1,6 @@
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.engine import Engine
+from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.sql import text
 
 from app.db import core as db_core
@@ -16,7 +18,6 @@ def test_engine_connects_successfully() -> None:
         assert int(result) == 1
 
 
-"""
 def test_get_db_session_can_execute_and_close() -> None:
     sess = db_core.get_db_session()
     assert isinstance(sess, Session)
@@ -24,12 +25,13 @@ def test_get_db_session_can_execute_and_close() -> None:
     assert int(result) == 1
     sess.close()
 
+
 def test_get_db_generator_yields_session_and_closes() -> None:
     gen = db_core.get_db()
     db = next(gen)
     assert isinstance(db, Session)
     # simple query to ensure session works
-    db.execute("SELECT 1")
+    db.execute(text("SELECT 1"))
     # close generator to run the finally block which closes the session
     gen.close()
 
@@ -69,4 +71,3 @@ def test_init_db_creates_tables(tmp_path) -> None:
         # Restore original engine/session to avoid side effects
         db_core._engine = orig_engine
         db_core._SessionLocal = orig_session_local
-"""
