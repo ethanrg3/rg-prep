@@ -24,6 +24,8 @@ _SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=_engine, fu
 class Base(DeclarativeBase):
     """All ORM models will inherit from this class."""
 
+    pass
+
 
 def get_db_engine() -> Engine:
     """Return the module-level SQLAlchemy engine."""
