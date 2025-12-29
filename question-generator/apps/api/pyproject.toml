@@ -46,3 +46,6 @@ warn_unused_configs = true
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.5.1"
