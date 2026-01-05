@@ -14,7 +14,6 @@ def collect_act_pdf(form_id: str) -> Path:
     project_root = Path(__file__).resolve().parents[4]
     pdf_dir = project_root / "data" / "raw-pdfs" / "act"
     pdf_path = pdf_dir / f"{form_id}_ACT.pdf"
-    breakpoint()
     return pdf_path
 
 
@@ -34,7 +33,8 @@ def extract_raw_text_from_act(form_id: str) -> None:
                 text = element.get_text()
                 normalized_text = normalize(text)
                 print(normalized_text)
-                # TODO: Implement text processing and storage logic here
+        breakpoint()
+        # TODO: Implement text processing and storage logic here
 
 
 # some testing
